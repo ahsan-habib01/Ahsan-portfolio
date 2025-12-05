@@ -73,8 +73,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo / Brand */}
           <button onClick={() => scrollToSection('home')} className="group">
-            <h1 className="text-2xl lg:text-3xl font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
-              YourName
+            <h1 className="text-2xl lg:text-3xl text-primary font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
+              Ahsan Habib
             </h1>
           </button>
 

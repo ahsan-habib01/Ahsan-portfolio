@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ahsanImg from '../assets/ahsan.jpg'
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -166,7 +167,7 @@ const HeroSection = () => {
                     </div>
                   </div> */}
                   <img
-                    src="https://i.ibb.co.com/0p92N7Zx/Whats-App-Image-2025-11-19-at-14-41-59-2873329e.jpg"
+                    src={ahsanImg}
                     alt=""
                     className=""
                   />

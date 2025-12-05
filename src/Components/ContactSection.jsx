@@ -52,38 +52,20 @@ const ContactSection = () => {
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com',
+      value: 'ahsanhabiib00@gmail.com',
+      link: 'mailto:ahsanhabiib00@gmail.com',
     },
     {
       icon: <FaPhone />,
       title: 'Phone',
-      value: '+1 (123) 456-7890',
-      link: 'tel:+11234567890',
+      value: '+880 1742-981732',
+      link: 'tel:+880 1742-981732',
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'Your City, Country',
+      value: 'Rajshahi, Bangladesh',
       link: null,
-    },
-  ];
-
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/yourusername',
-      icon: <FaGithub />,
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourusername',
-      icon: <FaLinkedin />,
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
-      icon: <FaTwitter />,
     },
   ];
 
@@ -125,21 +107,6 @@ const ContactSection = () => {
                   )}
                 </div>
               ))}
-
-              <div className="flex gap-4 mt-4">
-                {socialLinks.map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-base-200 hover:bg-primary hover:text-white rounded-lg text-xl transition-all duration-300 hover:scale-110"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
 
