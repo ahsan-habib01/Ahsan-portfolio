@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
+import ScrollToTop from '../Components/Static/ScrollToTop';
 
 const RootLayout = () => {
   return (
@@ -10,12 +11,13 @@ const RootLayout = () => {
         <Navbar />
       </header>
 
-      <main className="max-w-7xl mx-auto mx-2">
+      <main className="">
         <Outlet />
       </main>
 
       <footer>
         <Footer />
+        <ScrollToTop></ScrollToTop>
       </footer>
     </div>
   );

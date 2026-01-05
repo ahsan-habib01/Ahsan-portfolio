@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ahsanImg from '../assets/ahsan.jpg'
+import ahsanImg from '../assets/ahsan.jpg';
+import ahsanImg2 from '../assets/ahsan-photo.png';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,11 +9,7 @@ const HeroSection = () => {
     setIsVisible(true);
   }, []);
 
-  const roles = [
-    'Web Developer',
-    'Full Stack Developer',
-    'React Specialist',
-  ];
+  const roles = ['Web Developer', 'Full Stack Developer', 'React Specialist'];
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -150,23 +147,12 @@ const HeroSection = () => {
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               {/* Profile Image Container */}
               <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-primary via-primary to-secondary p-1 animate-float">
-                <div className="w-full h-full rounded-[2.8rem] bg-base-100 flex items-center justify-center overflow-hidden">
-                  {/* Replace this div with your actual image */}
-                  {/* <div className="w-full h-full bg-gradient-to-br from-base-200 to-base-300 flex items-center justify-center">
-                    <div className="text-center space-y-4 p-8">
-                      <svg
-                        className="w-32 h-32 mx-auto text-primary/30"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                      </svg>
-                      <p className="text-base-content/50 font-accent text-sm">
-                        Your Photo Here
-                      </p>
-                    </div>
-                  </div> */}
-                  <img src={ahsanImg} alt="ahsan-image" className="" />
+                <div className="w-full h-160 rounded-[2.8rem] bg-base-100 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={ahsanImg2}
+                    alt="ahsan-image"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 

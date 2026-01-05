@@ -76,7 +76,7 @@ const ContactSection = () => {
   from-[#fffafa] to-[#f3eded] 
    dark:from-[#1e293b] dark:to-[#334155] py-16"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary mb-2">Get In Touch</h2>
@@ -85,7 +85,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 mx-10">
           {/* Left: Contact Info */}
           <div className="space-y-8">
             <div className="p-8 bg-base-100 rounded-xl shadow-lg space-y-6">
