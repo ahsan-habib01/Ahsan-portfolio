@@ -115,7 +115,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row text-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 text-center dark:text-gray-400 text-sm">
+            <p className="text-gray-600 mx-auto text-center dark:text-gray-400 text-sm">
               © {currentYear} AhsanHabib. All rights reserved.
             </p>
           </div>

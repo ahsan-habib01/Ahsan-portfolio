@@ -97,6 +97,7 @@ const Navbar = () => {
 
           {/* Right Side: Theme Toggle & Mobile Menu */}
           <div className="flex items-center gap-4">
+            
             {/* Theme Toggle Switch */}
             <label className="swap swap-rotate">
               <input

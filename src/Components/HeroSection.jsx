@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ahsanImg from '../assets/ahsan.jpg';
 import ahsanImg2 from '../assets/ahsan-photo.png';
+import { Download } from 'lucide-react';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -100,12 +101,14 @@ const HeroSection = () => {
               >
                 View My Work
               </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="btn bg-secondary text-white"
+              <a
+                href="/Ahsan_Habib_Resume.pdf"
+                download="Ahsan_Habib_Resume.pdf"
+                className="btn bg-secondary text-white inline-flex items-center gap-2"
               >
-                Let's Connect
-              </button>
+                <Download size={20} />
+                Download Resume
+              </a>
             </div>
 
             {/* Quick Stats */}
