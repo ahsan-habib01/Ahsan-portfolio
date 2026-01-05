@@ -1,16 +1,62 @@
-# React + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built to showcase my skills, projects, and experience as a web developer. Features a sleek design with light/dark theme support and smooth animations.
 
-Currently, two official plugins are available:
+![Portfolio Preview](https://ahsan-habib0.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Modern & Responsive Design** - Fully responsive across all devices
+- **Dark/Light Theme** - Seamless theme switching with persistent user preference
+- **Smooth Animations** - Engaging user experience with subtle animations
+- **Fast Performance** - Optimized for speed and SEO
+- **Project Showcase** - Detailed presentation of my best work
+- **Interactive UI** - Built with modern React patterns and best practices
+- **Clean Code** - Well-organized, maintainable codebase
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Built With
 
-## Expanding the ESLint configuration
+- **React** - UI library for building component-based interfaces
+- **React Router** - Client-side routing for seamless navigation
+- **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **Vite** - Next-generation frontend tooling for blazing fast builds
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎨 Design Principles
+
+- **User-Centric** - Intuitive navigation and clear information hierarchy
+- **Professional** - Clean, modern aesthetic that reflects technical expertise
+- **Accessible** - WCAG compliant with keyboard navigation support
+- **Performance-First** - Optimized assets and lazy loading
+
+
+## 🎯 Key Sections
+
+- **Hero** - Attention-grabbing introduction with call-to-action
+- **About** - Professional background and skills overview
+- **Projects** - Showcase of selected work with live demos and code links
+- **Skills** - Technical competencies and tools
+- **Experience** - Professional timeline and achievements
+- **Contact** - Multiple ways to get in touch
+
+## 🔮 Future Enhancements
+
+- [ ] Blog section for technical articles
+- [ ] Testimonials from clients/colleagues
+- [ ] Interactive resume download
+- [ ] Project filtering and search
+- [ ] Animation on scroll effects
+- [ ] Multi-language support
+- [ ] Performance analytics
+
+## 🤝 Contributing
+
+While this is a personal portfolio, I'm open to suggestions! Feel free to open an issue or submit a pull request.
+
+## 📧 Contact
+
+- **Email**: ahsanhabiib00@email.com
+- **LinkedIn**: [Ahsan Habib](www.linkedin.com/in/ahsan-habib01)
+- **GitHub**: [@ahsan-habib01](https://github.com/ahsan-habib01)
+- **Portfolio**: [Ahsan Habib](https://ahsan-habib0.netlify.app)
+
+---
