@@ -64,17 +64,22 @@ const ContactSection = () => {
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'Rajshahi, Bangladesh',
+      value: 'Joypurhat, Bangladesh',
       link: null,
     },
   ];
 
   return (
-    <section id="contact" className="section-container bg-base-200/50 py-16">
+    <section
+      id="contact"
+      className="section-container bg-gradient-to-br 
+  from-[#fffafa] to-[#f3eded] 
+   dark:from-[#1e293b] dark:to-[#334155] py-16"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-primary mb-2">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-primary mb-2">Get In Touch</h2>
           <p className="text-base-content/70">
             Have a project in mind? Let's create something amazing together.
           </p>

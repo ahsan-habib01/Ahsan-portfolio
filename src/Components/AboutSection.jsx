@@ -56,11 +56,16 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="section-container bg-base-200/50 mt-10">
+    <section
+      id="about"
+      className="section-container  bg-gradient-to-br 
+  from-white to-gray-100 
+  dark:from-[#1f2933] dark:to-[#374151] py-16"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-primary">About Me</h2>
+          <h2 className="text-4xl font-bold text-primary">About Me</h2>
           <p className="text-base-content/70 mt-2">
             Turning ideas into clean, functional, modern web experiences.
           </p>
@@ -94,14 +99,15 @@ const AboutSection = () => {
         <div className="space-y-6 mb-16">
           <h3 className="text-2xl font-bold text-primary">Who I Am?</h3>
           <p className="text-base-content/80 leading-relaxed">
-            I’m a React & MERN stack developer focused on building modern,
-            clean, fast web applications. I enjoy making simple interfaces,
-            reusable components, optimized APIs, and full-stack features that
-            feel smooth and intuitive.
+            I’m a Full Stack Developer focused on building modern, clean, fast
+            web applications. I enjoy making simple interfaces, reusable
+            components, optimized APIs, and full-stack features that feel smooth
+            and intuitive.
           </p>
           <p className="text-base-content/80 leading-relaxed">
-            Currently learning Next.js, improving backend skills, and working on
-            real-world style projects like Freelify, Greennest, and more.
+            Currently learning Next.js and TypeScript, improving backend skills,
+            and working on real-world style projects like Freelify, Greennest,
+            and more.
           </p>
         </div>
 

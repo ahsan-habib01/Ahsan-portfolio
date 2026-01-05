@@ -20,6 +20,13 @@
   --color-primary: #38040e;  
   --color-secondary: #640d14;  
 }
+@plugin "daisyui/theme" {
+  name: "dark";
+  /* default: true; */
+
+  --color-primary: #0466c8;  
+  --color-secondary: #468faf;  
+}
 
 /* Typography Utilities */
 .font-display {

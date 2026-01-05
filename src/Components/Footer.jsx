@@ -1,10 +1,25 @@
 import React from 'react';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaSquareXTwitter, FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router';
-import x from '../assets/twitter.png'
+import x from '../assets/twitter.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const handleScrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const quickLinks = [
+    { name: 'Home', path: '/', isRoute: true },
+    { name: 'About', id: 'about', isRoute: false },
+    { name: 'Projects', id: 'projects', isRoute: false },
+    { name: 'Contact', id: 'contact', isRoute: false },
+  ];
 
   const socialLinks = [
     {
@@ -20,25 +35,19 @@ const Footer = () => {
     {
       name: 'Twitter',
       url: 'https://x.com/home',
-      icon: x,
+      icon: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z',
     },
   ];
 
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/contact' },
-  ];
 
   return (
-    <footer className="glass border-t border-gray-200 dark:border-gray-800 mt-auto">
+    <footer className="glass  border-t border-gray-200 dark:border-gray-800 mt-auto bg-gradient-to-br from-white to-gray-200  dark:from-[#1f2933] dark:to-[#374151]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-display font-bold gradient-text">
-              YourName
+              AhsanHabib
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
               Crafting elegant web experiences with modern technologies. Let's
@@ -51,18 +60,25 @@ const Footer = () => {
             <h4 className="text-lg font-accent font-semibold text-gray-900 dark:text-white">
               Quick Links
             </h4>
-            <ul className="space-y-2">
-              {quickLinks.map(link => (
-                <li key={link.path}>
+            {quickLinks.map(link => (
+              <ul key={link.name}>
+                {link.isRoute ? (
                   <Link
                     to={link.path}
                     className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 text-sm"
                   >
                     {link.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ) : (
+                  <button
+                    onClick={e => handleScrollToSection(e, link.id)}
+                    className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 text-sm text-left"
+                  >
+                    {link.name}
+                  </button>
+                )}
+              </ul>
+            ))}
           </div>
 
           {/* Social Links */}

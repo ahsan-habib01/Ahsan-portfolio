@@ -47,11 +47,16 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="section-container">
+    <section
+      id="projects"
+      className="section-container bg-gradient-to-br from-white to-blue-50 dark:from-[#020617] dark:to-[#0f172a] py-16"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-title gradient-text">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">
+            Featured Projects
+          </h2>
           <p className="section-subtitle mx-auto">
             A showcase of my recent work and creative solutions
           </p>
@@ -211,6 +216,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* More Projects Coming Soon */}
+          <hr className='text-gray-400 dark:text-gray-700'/>
         <div className="glass-effect rounded-3xl p-12 text-center animate-fade-in">
           <div className="max-w-2xl mx-auto space-y-4">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">

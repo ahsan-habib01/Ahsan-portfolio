@@ -1,7 +1,13 @@
 import React from 'react';
 import { BiLogoMongodb } from 'react-icons/bi';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
-import { SiExpress, SiFirebase, SiJavascript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
+import {
+  SiExpress,
+  SiFirebase,
+  SiJavascript,
+  SiNextdotjs,
+  SiTailwindcss,
+} from 'react-icons/si';
 // import {
 //   BiLogoMongodb,
 //   FaNodeJs,
@@ -26,9 +32,15 @@ const skills = [
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="section-container bg-base-200/50 py-16">
+    <section
+      id="skills"
+      className="section-container bg-gradient-to-br 
+  from-[#fffafa] to-[#f3eded] 
+   dark:from-[#1e293b] dark:to-[#334155]
+ py-16"
+    >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-primary mb-4">
+        <h2 className="text-4xl font-bold text-primary mb-4">
           Skills & Expertise
         </h2>
         <p className="text-base-content/70 mb-12">

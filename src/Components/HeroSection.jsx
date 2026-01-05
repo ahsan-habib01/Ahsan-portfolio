@@ -10,7 +10,7 @@ const HeroSection = () => {
 
   const roles = [
     'Web Developer',
-    'Frontend Developer',
+    'Full Stack Developer',
     'React Specialist',
   ];
   const [currentRole, setCurrentRole] = useState(0);
@@ -35,7 +35,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden mt-15"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 mt-16 bg-gradient-to-br from-white to-gray-200  dark:from-[#1f2933] dark:to-[#374151]"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -166,11 +166,7 @@ const HeroSection = () => {
                       </p>
                     </div>
                   </div> */}
-                  <img
-                    src={ahsanImg}
-                    alt=""
-                    className=""
-                  />
+                  <img src={ahsanImg} alt="ahsan-image" className="" />
                 </div>
               </div>
 
