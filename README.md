@@ -2,7 +2,13 @@
 
 A modern, responsive portfolio website built to showcase my skills, projects, and experience as a web developer. Features a sleek design with light/dark theme support and smooth animations.
 
-![Portfolio Preview](https://ahsan-habib0.netlify.app)
+- **Portfolio Preview**: [Have A Look!](https://ahsan-habib0.netlify.app)
+
+## 📧 Contact
+
+- **Email**: ahsanhabiib00@email.com
+- **LinkedIn**: [Ahsan Habib](www.linkedin.com/in/ahsan-habib01)
+- **GitHub**: [@ahsan-habib01](https://github.com/ahsan-habib01)
 
 ## ✨ Features
 
@@ -51,12 +57,5 @@ A modern, responsive portfolio website built to showcase my skills, projects, an
 ## 🤝 Contributing
 
 While this is a personal portfolio, I'm open to suggestions! Feel free to open an issue or submit a pull request.
-
-## 📧 Contact
-
-- **Email**: ahsanhabiib00@email.com
-- **LinkedIn**: [Ahsan Habib](www.linkedin.com/in/ahsan-habib01)
-- **GitHub**: [@ahsan-habib01](https://github.com/ahsan-habib01)
-- **Portfolio**: [Ahsan Habib](https://ahsan-habib0.netlify.app)
 
 ---
