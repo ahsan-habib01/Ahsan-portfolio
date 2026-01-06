@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* Tailwind + DaisyUI */
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 
 /* DaisyUI themes */
@@ -14,31 +14,32 @@
 
 /* Custom Light Theme */
 @plugin "daisyui/theme" {
-  name: "light";
+  name: 'light';
   default: true;
 
-  --color-primary: #38040e;  
-  --color-secondary: #640d14;  
+  --color-primary: #38040e;
+  --color-secondary: #640d14;
 }
 @plugin "daisyui/theme" {
-  name: "dark";
+  name: 'dark';
   /* default: true; */
 
-  --color-primary: #0466c8;  
-  --color-secondary: #468faf;  
+  --color-primary: #bc6c25;  /* 0466c8 */
+  --color-secondary: #dda15e; /* 468faf */
 }
 
 /* Typography Utilities */
 .font-display {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .font-body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-html, body {
-  font-family: "Inter", sans-serif;
+html,
+body {
+  font-family: 'Inter', sans-serif;
   background-color: var(--base-100); /* or your bg */
   scroll-behavior: smooth;
 }
@@ -51,7 +52,7 @@ html, body {
 }
 
 .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -96,7 +97,7 @@ html, body {
 
 /* Underline (hidden by default) */
 .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;

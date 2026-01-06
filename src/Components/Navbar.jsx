@@ -97,7 +97,6 @@ const Navbar = () => {
 
           {/* Right Side: Theme Toggle & Mobile Menu */}
           <div className="flex items-center gap-4">
-            
             {/* Theme Toggle Switch */}
             <label className="swap swap-rotate">
               <input
@@ -172,10 +171,10 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`px-5 py-3 rounded-lg font-accent text-base font-semibold tracking-wide transition-all duration-300 text-left ${
+                  className={`px-5 py-2 font-accent text-sm font-semibold tracking-wide transition-all duration-300 border-b-2 ${
                     activeSection === link.id
-                      ? 'bg-primary text-primary-content shadow-lg'
-                      : 'text-base-content hover:bg-base-200'
+                      ? 'text-primary border-primary'
+                      : 'text-base-content border-transparent hover:text-primary hover:border-primary'
                   }`}
                 >
                   {link.name}
