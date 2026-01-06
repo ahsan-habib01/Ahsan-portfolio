@@ -83,7 +83,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-base-100 via-base-200 to-base-100 py-16 mt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-base-100 via-base-200 to-base-100 py-36"
     >
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-30">

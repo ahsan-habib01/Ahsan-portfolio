@@ -54,135 +54,297 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Contact', id: 'contact' },
+    {
+      name: 'Home',
+      id: 'home',
+      icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+    },
+    {
+      name: 'About',
+      id: 'about',
+      icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+    },
+    {
+      name: 'Skills',
+      id: 'skills',
+      icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+    },
+    {
+      name: 'Projects',
+      id: 'projects',
+      icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    },
+    {
+      name: 'Contact',
+      id: 'contact',
+      icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white dark:bg-gray-800 py-3'
-          : 'bg-white dark:bg-gray-800 py-5'
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 py-3'
+          : 'bg-transparent py-5'
       }`}
     >
+      {/* Progress Bar */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary bg-[length:200%_100%] animate-gradient-x opacity-0 transition-opacity duration-300"
+        style={{ opacity: isScrolled ? 1 : 0 }}
+      />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between">
-          {/* Logo / Brand */}
-          <button onClick={() => scrollToSection('home')} className="group">
-            <h1 className="text-2xl lg:text-3xl text-primary font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
-              Ahsan Habib
-            </h1>
+          {/* Logo / Brand with Animation */}
+          <button
+            onClick={() => scrollToSection('home')}
+            className="group flex items-center space-x-3"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <span className="text-white font-bold text-lg">AH</span>
+              </div>
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl lg:text-2xl font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
+                Ahsan Habib
+              </h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400 font-accent">
+                Web Developer
+              </p>
+            </div>
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
-            {navLinks.map(link => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`px-5 py-2 rounded-lg font-accent text-sm font-semibold tracking-wide transition-all duration-300 ${
-                  activeSection === link.id
-                    ? 'bg-primary text-primary-content shadow-lg shadow-primary/30'
-                    : 'text-base-content hover:text-primary hover:bg-base-200'
-                }`}
-              >
-                {link.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Right Side: Theme Toggle & Mobile Menu */}
-          <div className="flex items-center gap-4">
-            {/* Theme Toggle Switch */}
-            <label className="swap swap-rotate">
-              <input
-                type="checkbox"
-                onChange={e => handleTheme(e.target.checked)}
-                defaultChecked={localStorage.getItem('theme') === 'dark'}
-              />
-
-              {/* Sun Icon (Light Mode) */}
-              <svg
-                className="swap-off fill-current w-6 h-6 text-primary"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-              </svg>
-
-              {/* Moon Icon (Dark Mode) */}
-              <svg
-                className="swap-on fill-current w-6 h-6 text-primary"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-              </svg>
-            </label>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden btn btn-ghost btn-circle"
-              aria-label="Toggle menu"
+          {/* Desktop Navigation with Enhanced Design */}
+          <div className="hidden lg:flex items-center">
+            <div
+              className={`flex items-center space-x-1 p-1.5 rounded-full ${
+                isScrolled
+                  ? 'bg-gray-100 dark:bg-gray-800'
+                  : 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md'
+              }`}
             >
-              {isMobileMenuOpen ? (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 glass-effect rounded-2xl p-6 animate-slide-down">
-            <div className="flex flex-col space-y-3">
               {navLinks.map(link => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`px-5 py-2 font-accent text-sm font-semibold tracking-wide transition-all duration-300 border-b-2 ${
+                  className={`group relative px-4 py-2 rounded-full font-accent text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer ${
                     activeSection === link.id
-                      ? 'text-primary border-primary'
-                      : 'text-base-content border-transparent hover:text-primary hover:border-primary'
+                      ? 'text-white'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white'
                   }`}
                 >
-                  {link.name}
+                  {/* Active Background */}
+                  {activeSection === link.id && (
+                    <span className="absolute inset-0 bg-gradient-to-r from-primary to-primary-600 rounded-full shadow-lg shadow-primary/30" />
+                  )}
+
+                  {/* Hover Effect */}
+                  <span className="absolute inset-0 bg-gray-200 dark:bg-gray-700 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 opacity-0 group-hover:opacity-100" />
+
+                  <span className="relative flex items-center space-x-2">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d={link.icon}
+                      />
+                    </svg>
+                    <span>{link.name}</span>
+                  </span>
                 </button>
               ))}
             </div>
           </div>
-        )}
+
+          {/* Right Side: Theme Toggle & Mobile Menu */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle with Enhanced Design */}
+            <label className="relative cursor-pointer group">
+              <input
+                type="checkbox"
+                className="sr-only"
+                onChange={e => handleTheme(e.target.checked)}
+                defaultChecked={localStorage.getItem('theme') === 'dark'}
+              />
+
+              <div
+                className={`w-14 h-8 rounded-full transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'bg-gradient-to-r from-primary to-secondary'
+                    : 'bg-gradient-to-r from-yellow-600 to-orange-800'
+                }`}
+              >
+                <div
+                  className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-lg transform transition-all duration-300 flex items-center justify-center ${
+                    theme === 'dark' ? 'translate-x-6' : 'translate-x-0'
+                  }`}
+                >
+                  {theme === 'dark' ? (
+                    <svg
+                      className="w-4 h-4 text-indigo-600"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-4 h-4 text-yellow-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  )}
+                </div>
+              </div>
+            </label>
+
+            {/* CTA Button - Desktop Only */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-accent font-semibold text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
+            >
+              <span>Let's Talk</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+
+            {/* Mobile Menu Button with Animation */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden relative w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              <div className="w-5 h-5 flex flex-col justify-center items-center">
+                <span
+                  className={`block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 rounded-full transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : 'mb-1'
+                  }`}
+                />
+                <span
+                  className={`block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 rounded-full transition-all duration-300 ${
+                    isMobileMenuOpen ? 'opacity-0' : 'mb-1'
+                  }`}
+                />
+                <span
+                  className={`block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 rounded-full transition-all duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Enhanced Mobile Menu */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-500 ${
+            isMobileMenuOpen
+              ? 'max-h-[600px] opacity-100 mt-6'
+              : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="glass rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link, index) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className={`group relative px-5 py-3 rounded-xl font-accent text-sm font-semibold tracking-wide transition-all duration-300 text-left ${
+                    activeSection === link.id
+                      ? 'bg-gradient-to-r from-primary to-primary-600 text-white shadow-lg shadow-primary/30'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }`}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
+                  <span className="flex items-center space-x-3">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d={link.icon}
+                      />
+                    </svg>
+                    <span>{link.name}</span>
+                    {activeSection === link.id && (
+                      <svg
+                        className="w-4 h-4 ml-auto"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile CTA */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="w-full mt-6 flex items-center justify-center space-x-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-600 text-white rounded-xl font-accent font-semibold text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
+            >
+              <span>Get In Touch</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+
+            {/* Mobile Footer */}
+            <div className="mt-6 pt-6 border-t border-gray-200/50 dark:border-gray-700/50 text-center">
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Available for freelance opportunities
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );

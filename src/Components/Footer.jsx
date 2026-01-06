@@ -1,7 +1,5 @@
 import React from 'react';
-import { FaSquareXTwitter, FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router';
-// import x from '../assets/twitter.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,85 +37,151 @@ const Footer = () => {
     },
   ];
 
-
   return (
-    <footer className="glass  border-t border-gray-200 dark:border-gray-800 mt-auto bg-gradient-to-br from-white to-gray-200  dark:from-[#1f2933] dark:to-[#374151]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+    <footer className="relative glass border-t border-gray-200/50 dark:border-gray-700/50 mt-auto bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-[#1a1f2e] dark:via-[#1f2937] dark:to-[#111827] overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-gradient-to-br from-primary/5 to-purple-500/5 dark:from-primary/10 dark:to-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-gradient-to-tr from-blue-500/5 to-primary/5 dark:from-blue-500/10 dark:to-primary/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-display font-bold gradient-text">
-              AhsanHabib
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <div className="space-y-4 group">
+            <div className="flex items-center space-x-2">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-xl">AH</span>
+              </div>
+              <h3 className="text-2xl font-display font-bold gradient-text">
+                AhsanHabib
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               Crafting elegant web experiences with modern technologies. Let's
               build something amazing together.
             </p>
+            <div className="flex items-center space-x-2 text-sm">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-gray-600 dark:text-gray-400">
+                Available for work
+              </span>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-accent font-semibold text-gray-900 dark:text-white">
+            <h4 className="text-lg font-accent font-semibold text-gray-900 dark:text-white flex items-center">
               Quick Links
+              <span className="ml-2 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent rounded-full" />
             </h4>
-            {quickLinks.map(link => (
-              <ul key={link.name}>
-                {link.isRoute ? (
-                  <Link
-                    to={link.path}
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={e => handleScrollToSection(e, link.id)}
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 text-sm text-left"
-                  >
-                    {link.name}
-                  </button>
-                )}
-              </ul>
-            ))}
+            <ul className="space-y-3">
+              {quickLinks.map(link => (
+                <li key={link.name}>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.path}
+                      className="group flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-all duration-300 text-sm"
+                    >
+                      <span className="w-0 group-hover:w-4 h-0.5 bg-primary rounded-full transition-all duration-300 mr-0 group-hover:mr-2" />
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={e => handleScrollToSection(e, link.id)}
+                      className="group flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-all duration-300 text-sm text-left"
+                    >
+                      <span className="w-0 group-hover:w-4 h-0.5 bg-primary rounded-full transition-all duration-300 mr-0 group-hover:mr-2" />
+                      {link.name}
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Social Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-accent font-semibold text-gray-900 dark:text-white">
+            <h4 className="text-lg font-accent font-semibold text-gray-900 dark:text-white flex items-center">
               Connect
+              <span className="ml-2 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent rounded-full" />
             </h4>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               {socialLinks.map(social => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg glass hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110"
+                  className="group relative p-3 rounded-xl glass hover:bg-gradient-to-br hover:from-primary hover:to-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
                   aria-label={social.name}
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors duration-300"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path d={social.icon} />
                   </svg>
+                  {/* Tooltip */}
+                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    {social.name}
+                  </span>
                 </a>
               ))}
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-4">
-              Open to opportunities and collaborations
-            </p>
+            <div className="mt-6 p-4 rounded-xl glass border border-gray-200/50 dark:border-gray-700/50">
+              <div className="flex items-center space-x-2">
+                <svg
+                  className="w-5 h-5 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                <p className="text-gray-600 dark:text-gray-400 text-sm font-medium">
+                  Open to opportunities
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
-          <div className="flex flex-col md:flex-row text-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 mx-auto text-center dark:text-gray-400 text-sm">
-              © {currentYear} AhsanHabib. All rights reserved.
+        <div className="pt-8 mt-8 border-t border-gray-200/50 dark:border-gray-700/50">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-center space-x-2">
+              <span>© {currentYear} AhsanHabib.</span>
+              <span className="hidden md:inline">•</span>
+              <span>Crafted with</span>
+              <svg
+                className="w-4 h-4 text-red-500 animate-pulse"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>and React</span>
             </p>
+            <div className="flex items-center space-x-4 text-sm">
+              <button className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
+                Privacy Policy
+              </button>
+              <span className="text-gray-400">•</span>
+              <button className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
+                Terms of Service
+              </button>
+            </div>
           </div>
         </div>
       </div>
