@@ -207,7 +207,7 @@ const HeroSection = () => {
               <a
                 href="/Ahsan_Habib_Resume.pdf"
                 download="Ahsan_Habib_Resume.pdf"
-                className="group px-8 py-4 rounded-xl bg-secondary text-primary-content border-2 border-base-300
+                className="group px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-content border-2 border-base-300
                          font-accent font-bold inline-flex items-center gap-2
                          hover:border-primary hover:bg-primary/5 transition-all duration-300
                          hover:shadow-lg hover:scale-105"
@@ -299,7 +299,7 @@ const HeroSection = () => {
               </div>
 
               <div
-                className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-secondary to-accent 
+                className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-secondary to-primary 
                          rounded-2xl -rotate-12 flex items-center justify-center text-white
                          shadow-2xl shadow-secondary/50"
                 style={{
