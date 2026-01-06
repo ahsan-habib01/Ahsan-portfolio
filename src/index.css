@@ -24,8 +24,8 @@
   name: 'dark';
   /* default: true; */
 
-  --color-primary: #bc6c25;  /* 0466c8 */
-  --color-secondary: #dda15e; /* 468faf */
+  --color-primary: #0466c8;  /* 0466c8 bc6c25*/
+  --color-secondary: #468faf; /* 468faf dd15e*/
 }
 
 /* Typography Utilities */
