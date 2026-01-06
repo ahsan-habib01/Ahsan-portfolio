@@ -195,7 +195,7 @@ const AboutSection = () => {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-1 bg-gradient-to-r from-primary to-secondary rounded-full" />
               <h3 className="text-3xl font-display font-bold text-primary">
-                Who I Am
+                Who I Am?
               </h3>
             </div>
 
@@ -288,7 +288,7 @@ const AboutSection = () => {
                   (Yarn Engineering)
                 </p>
                 <p className="text-base-content/70 font-medium">
-                  Rangpur Textile Engineering College
+                  Rangpur Textile Engineering College, Pirganj, Rangpur
                 </p>
                 <div className="flex items-center gap-2 pt-2">
                   <div className="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20">

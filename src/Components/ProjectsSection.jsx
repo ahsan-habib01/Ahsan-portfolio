@@ -1,29 +1,77 @@
-import React, { useState } from 'react';
-import project1 from '../assets/freelify.png'
-import project2 from '../assets/project2.png'
-import project3 from '../assets/project3.png'
+import React, { useState, useEffect } from 'react';
+import {
+  ExternalLink,
+  Github,
+  Sparkles,
+  Code2,
+  Rocket,
+  ChevronDown,
+  ChevronUp,
+  Star,
+} from 'lucide-react';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import {
+  SiMongodb,
+  SiExpress,
+  SiFirebase,
+  SiTailwindcss,
+} from 'react-icons/si';
+import project1 from '../assets/freelify.png';
+import project2 from '../assets/project2.png';
+import project3 from '../assets/project3.png';
 
 const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('projects');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const techIcons = {
+    React: { icon: FaReact, color: '#61DAFB' },
+    'Node.js': { icon: FaNodeJs, color: '#339933' },
+    MongoDB: { icon: SiMongodb, color: '#47A248' },
+    'Express.js': { icon: SiExpress, color: '#000000' },
+    Firebase: { icon: SiFirebase, color: '#FFCA28' },
+    Tailwind: { icon: SiTailwindcss, color: '#06B6D4' },
+  };
 
   const projects = [
     {
       id: 1,
-      title: 'Freelify – A freelancing marketplace',
+      title: 'Freelify',
+      subtitle: 'A freelancing marketplace',
       category: 'Full Stack',
+      featured: true,
       description:
         'Freelify – A freelancing marketplace web app built with React, React Router, and Firebase Authentication. Fully responsive UI with Tailwind CSS, allowing users to browse services, register/login, and explore freelancer-client features.',
-      tags: ['React', 'Node.js', 'MongoDB', 'Express.js', 'MongoDB'],
-      thumbnail: project1, // Add your image path here later
+      tags: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Firebase'],
+      thumbnail: project1, // Replace with actual import
       link: 'https://freelance-market-place-7a5e9.web.app/',
       github:
         'https://github.com/ahsan-habib01/freelance-market-place-client.git',
       status: 'Live',
+      highlight: 'Full authentication & payment integration',
     },
     {
       id: 2,
-      title: 'GreenNest - A plant care & shop',
+      title: 'GreenNest',
+      subtitle: 'A plant care & shop',
       category: 'Frontend',
+      featured: true,
       description:
         'A nature-inspired e-commerce web app focused on sustainable and eco-friendly products. Designed with React and Tailwind CSS, ensuring responsive layout and smooth user experience.',
       tags: ['React', 'Express.js', 'Firebase', 'Tailwind'],
@@ -31,183 +79,317 @@ const ProjectsSection = () => {
       link: 'https://green-nest-indoor-plants.web.app/',
       github: 'https://github.com/ahsan-habib01/greenNest-indoor-plants.git',
       status: 'Live',
+      highlight: 'Beautiful UI with plant care guides',
     },
     {
       id: 3,
       title: 'Hero Apps',
+      subtitle: 'App library platform',
       category: 'Web App',
+      featured: true,
       description:
         'A responsive app library platform built with React and Tailwind CSS that showcases various hero-based applications. Designed to demonstrate multiple mini-app functionalities in one place with smooth UI and navigation',
-      tags: ['React', 'API Integration', 'Charts'],
+      tags: ['React', 'Tailwind', 'Firebase'],
       thumbnail: project3,
       link: 'https://hero-apps-ahsan-habib.netlify.app/',
       github: 'https://github.com/ahsan-habib01/B12A08-Hero-Apps.git',
       status: 'Live',
+      highlight: 'Multi-app showcase platform',
+    },
+    // Additional projects (hidden initially)
+    {
+      id: 4,
+      title: 'E-Commerce Dashboard',
+      subtitle: 'Admin panel',
+      category: 'Full Stack',
+      featured: false,
+      description:
+        'A comprehensive admin dashboard for managing e-commerce operations with real-time analytics, product management, and order tracking.',
+      tags: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      thumbnail: null,
+      link: '#',
+      github: '#',
+      status: 'In Progress',
+      highlight: 'Real-time analytics',
+    },
+    {
+      id: 5,
+      title: 'Portfolio Builder',
+      subtitle: 'Creator tool',
+      category: 'Web App',
+      featured: false,
+      description:
+        'An intuitive portfolio builder that helps developers and designers create stunning portfolios without coding.',
+      tags: ['React', 'Firebase', 'Tailwind'],
+      thumbnail: null,
+      link: '#',
+      github: '#',
+      status: 'In Progress',
+      highlight: 'Drag & drop interface',
     },
   ];
+
+  const displayedProjects = showAll
+    ? projects
+    : projects.filter(p => p.featured);
 
   return (
     <section
       id="projects"
-      className="section-container bg-gradient-to-br from-white to-blue-50 dark:from-[#020617] dark:to-[#0f172a] py-16"
+      className="relative py-16 overflow-hidden bg-gradient-to-br from-base-100 via-base-200 to-base-100"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-primary mb-4">
-            Featured Projects
+      {/* Animated Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div
+          className="absolute top-40 right-20 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: '5s' }}
+        />
+        <div
+          className="absolute bottom-40 left-20 w-72 h-72 bg-secondary/30 rounded-full blur-3xl animate-pulse"
+          style={{ animationDuration: '7s', animationDelay: '1s' }}
+        />
+      </div>
+
+      <div className="section-container relative z-10 mx-10">
+        {/* Header */}
+        <div
+          className={`text-center mb-12 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-3">
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-sm font-accent font-semibold text-primary">
+              Portfolio Showcase
+            </span>
+          </div>
+
+          <h2 className="text-4xl lg:text-5xl font-display font-black mb-3">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              Featured Projects
+            </span>
           </h2>
-          <p className="section-subtitle mx-auto">
+          <p className="text-base text-base-content/70 max-w-2xl mx-auto">
             A showcase of my recent work and creative solutions
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="space-y-8 mb-16">
-          {projects.map((project, index) => (
+        <div className="space-y-8">
+          {displayedProjects.map((project, index) => (
             <div
               key={project.id}
-              className="card-elegant group hover:scale-[1.02] animate-slide-up"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className={`group transition-all duration-1000 ${
+                isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="grid lg:grid-cols-5 gap-8 items-center">
-                {/* Project Thumbnail */}
-                <div className="lg:col-span-2">
-                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 aspect-video group-hover:shadow-2xl transition-shadow duration-500">
-                    {project.thumbnail ? (
-                      <img
-                        src={project.thumbnail}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center space-y-2">
-                          <span className="text-6xl font-display font-black text-primary/30">
-                            {project.id}
+              <div
+                className={`relative rounded-2xl bg-gradient-to-br from-base-100 to-base-200 
+                           border border-base-300 overflow-hidden hover:border-primary 
+                           transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 
+                           ${
+                             index % 2 === 0
+                               ? 'hover:-translate-y-1'
+                               : 'hover:translate-y-1'
+                           }`}
+              >
+                <div
+                  className={`grid lg:grid-cols-2 gap-0 ${
+                    index % 2 === 0 ? '' : 'lg:grid-flow-dense'
+                  }`}
+                >
+                  {/* Project Image */}
+                  <div
+                    className={`relative h-64 lg:h-80 overflow-hidden ${
+                      index % 2 === 0 ? '' : 'lg:col-start-2'
+                    }`}
+                  >
+                    {/* Featured Badge */}
+                    {project.featured && (
+                      <div className="absolute top-4 left-4 z-20">
+                        <div
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r 
+                                  from-yellow-400 to-orange-500 text-white shadow-lg"
+                        >
+                          <Star className="w-3 h-3 fill-white" />
+                          <span className="text-xs font-accent font-bold">
+                            Featured
                           </span>
-                          <p className="text-xs text-base-content/40 font-accent">
-                            Thumbnail Coming Soon
-                          </p>
                         </div>
                       </div>
                     )}
-
                     {/* Status Badge */}
-                    <div className="absolute top-3 right-3">
-                      <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-white rounded-full text-xs font-accent font-bold shadow-lg">
+                    <div className="absolute top-4 right-4 z-10">
+                      <div
+                        className={`px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg font-accent font-bold text-xs ${
+                          project.status === 'Live'
+                            ? 'bg-green-500 text-white'
+                            : 'bg-orange-500 text-white'
+                        }`}
+                      >
                         {project.status}
-                      </span>
+                      </div>
+                    </div>
+
+                    {/* Image Container */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20">
+                      {project.thumbnail ? (
+                        <img
+                          src={project.thumbnail}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-center space-y-2">
+                            <div className="text-6xl font-display font-black text-primary/20">
+                              {project.id}
+                            </div>
+                            <p className="text-xs text-base-content/40 font-accent">
+                              Thumbnail Coming Soon
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-3">
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-transparent 
+                                  opacity-0 group-hover:opacity-100 transition-all duration-500 
+                                  flex flex-col items-center justify-center gap-3"
+                    >
+                      <div className="text-white text-center space-y-2 px-6">
+                        <Rocket className="w-12 h-12 mx-auto animate-bounce" />
+                        <p className="text-base font-accent font-semibold">
+                          {project.highlight}
+                        </p>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/btn p-3 bg-white rounded-xl hover:scale-110 
+                                   transition-all duration-300 shadow-xl hover:shadow-2xl"
+                        >
+                          <ExternalLink className="w-5 h-5 text-primary" />
+                        </a>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/btn p-3 bg-white rounded-xl hover:scale-110 
+                                   transition-all duration-300 shadow-xl hover:shadow-2xl"
+                        >
+                          <Github className="w-5 h-5 text-primary" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Info */}
+                  <div
+                    className={`p-6 lg:p-8 flex flex-col justify-center ${
+                      index % 2 === 0 ? '' : 'lg:col-start-1'
+                    }`}
+                  >
+                    {/* Category */}
+                    <div
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full 
+                                  bg-primary/10 border border-primary/20 w-fit mb-3"
+                    >
+                      <Code2 className="w-3.5 h-3.5 text-primary" />
+                      <span className="text-xs font-accent font-bold text-primary">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                      className="text-2xl lg:text-3xl font-display font-black mb-1 
+                                 group-hover:text-primary transition-colors duration-300"
+                    >
+                      {project.title}
+                    </h3>
+                    <p className="text-lg text-primary/70 font-accent font-semibold mb-3">
+                      {project.subtitle}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-sm text-base-content/70 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack with Icons */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map(tag => {
+                        const tech = techIcons[tag];
+                        const Icon = tech?.icon;
+
+                        return (
+                          <div
+                            key={tag}
+                            className="group/tag flex items-center gap-1.5 px-3 py-1.5 rounded-lg 
+                                     bg-base-200 border border-base-300 hover:border-primary 
+                                     hover:bg-primary/5 transition-all duration-300 cursor-default
+                                     hover:scale-105"
+                          >
+                            {Icon && (
+                              <Icon
+                                size={14}
+                                style={{
+                                  color:
+                                    tech.color === '#000000'
+                                      ? 'currentColor'
+                                      : tech.color,
+                                }}
+                                className={
+                                  tech.color === '#000000'
+                                    ? 'text-gray-900 dark:text-white'
+                                    : ''
+                                }
+                              />
+                            )}
+                            <span className="text-xs font-accent font-semibold">
+                              {tag}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap gap-3">
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-white hover:bg-base-100 rounded-lg hover:scale-110 transition-transform shadow-lg"
-                        onClick={e => e.stopPropagation()}
+                        className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-lg 
+                                 bg-primary text-primary-content font-accent font-bold text-sm
+                                 hover:shadow-lg hover:shadow-primary/50 hover:scale-105 
+                                 transition-all duration-300"
                       >
-                        <svg
-                          className="w-5 h-5 text-primary"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
+                        <span>Live Demo</span>
+                        <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </a>
+
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-white hover:bg-base-100 rounded-lg hover:scale-110 transition-transform shadow-lg"
-                        onClick={e => e.stopPropagation()}
+                        className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-lg 
+                                 border-2 border-base-300 hover:border-primary hover:bg-primary/5 
+                                 font-accent font-bold text-sm hover:scale-105 transition-all duration-300"
                       >
-                        <svg
-                          className="w-5 h-5 text-primary"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
+                        <span>View Code</span>
+                        <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
                       </a>
                     </div>
-                  </div>
-                </div>
-
-                {/* Project Info */}
-                <div className="lg:col-span-3 space-y-4">
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-lg text-xs font-accent font-bold">
-                        {project.category}
-                      </span>
-                    </div>
-                    <h3 className="text-3xl font-display font-bold mb-3 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-base-content/70 leading-relaxed text-lg">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 bg-base-200 hover:bg-base-300 text-base-content rounded-lg text-sm font-accent font-medium transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3 pt-2">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-2 bg-primary hover:bg-primary-light text-white rounded-lg font-accent font-semibold text-sm transition-all hover:scale-105"
-                    >
-                      <span>Live Demo</span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-2 border-2 border-base-300 hover:border-primary hover:bg-base-200 rounded-lg font-accent font-semibold text-sm transition-all hover:scale-105"
-                    >
-                      <span>View Code</span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -215,60 +397,103 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* More Projects Coming Soon */}
-          <hr className='text-gray-400 dark:text-gray-700'/>
-        <div className="glass-effect rounded-3xl p-12 text-center animate-fade-in">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">
-              <svg
-                className="w-8 h-8 text-primary"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                />
-              </svg>
+        {/* See More Button */}
+        {projects.length > 3 && (
+          <div
+            className={`text-center mt-12 transition-all duration-1000 delay-500 ${
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl 
+                       bg-gradient-to-r from-primary to-secondary text-white 
+                       font-accent font-bold hover:shadow-xl hover:shadow-primary/50 
+                       hover:scale-105 transition-all duration-300"
+            >
+              <span>{showAll ? 'Show Less' : 'See More Projects'}</span>
+              {showAll ? (
+                <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              )}
+            </button>
+          </div>
+        )}
+
+        {/* CTA Section */}
+        <div
+          className={`mt-16 transition-all duration-1000 delay-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div
+            className="relative rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 
+                       border border-primary/20 overflow-hidden p-8"
+          >
+            {/* Background decoration */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary rounded-full blur-3xl" />
             </div>
-            <h3 className="text-2xl font-display font-bold">
-              More Projects Coming Soon
-            </h3>
-            <p className="text-base-content/70">
-              I'm constantly working on new projects and improving existing
-              ones. Check back soon or follow me on GitHub to see what I'm
-              building next.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <a
-                href="https://github.com/ahsan-habib01"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
+
+            <div className="relative text-center max-w-3xl mx-auto space-y-4">
+              <div
+                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl 
+                           bg-gradient-to-br from-primary to-secondary mb-2 animate-bounce"
               >
-                Follow on GitHub
-              </a>
-              <button
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    const offset = 80;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition =
-                      elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth',
-                    });
-                  }
-                }}
-                className="btn btn-primary"
-              >
-                Let's Collaborate
-              </button>
+                <Sparkles className="w-8 h-8 text-white" />
+              </div>
+
+              <h3 className="text-2xl lg:text-3xl font-display font-black">
+                More Projects Coming Soon
+              </h3>
+
+              <p className="text-base text-base-content/70">
+                I'm constantly working on new projects and improving existing
+                ones. Check back soon or follow me on GitHub to see what I'm
+                building next.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-3 pt-3">
+                <a
+                  href="https://github.com/ahsan-habib01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-6 py-3 rounded-xl 
+                           bg-primary text-primary-content font-accent font-bold 
+                           hover:shadow-lg hover:shadow-primary/50 hover:scale-105 
+                           transition-all duration-300"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>Follow on GitHub</span>
+                </a>
+
+                <button
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      const offset = 80;
+                      const elementPosition =
+                        element.getBoundingClientRect().top;
+                      const offsetPosition =
+                        elementPosition + window.pageYOffset - offset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth',
+                      });
+                    }
+                  }}
+                  className="group flex items-center gap-2 px-6 py-3 rounded-xl 
+                           border-2 border-primary hover:bg-primary hover:text-primary-content 
+                           font-accent font-bold hover:scale-105 transition-all duration-300"
+                >
+                  <Rocket className="w-4 h-4" />
+                  <span>Let's Collaborate</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

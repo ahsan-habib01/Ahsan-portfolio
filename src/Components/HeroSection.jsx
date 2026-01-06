@@ -193,7 +193,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4 pt-4">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-6 py-3 rounded bg-primary text-primary-content 
+                className="group relative px-8 py-4 rounded-xl bg-primary text-primary-content 
                          font-accent font-bold overflow-hidden transition-all duration-300
                          hover:shadow-2xl hover:shadow-primary/50 hover:scale-105"
               >
@@ -207,8 +207,8 @@ const HeroSection = () => {
               <a
                 href="/Ahsan_Habib_Resume.pdf"
                 download="Ahsan_Habib_Resume.pdf"
-                className="group px-6 py-3 rounded bg-secondary border-2 border-base-300
-                         text-base-content font-accent font-bold inline-flex items-center gap-2
+                className="group px-8 py-4 rounded-xl bg-secondary text-primary-content border-2 border-base-300
+                         font-accent font-bold inline-flex items-center gap-2
                          hover:border-primary hover:bg-primary/5 transition-all duration-300
                          hover:shadow-lg hover:scale-105"
               >

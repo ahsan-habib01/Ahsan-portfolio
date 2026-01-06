@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaSquareXTwitter, FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router';
-import x from '../assets/twitter.png';
+// import x from '../assets/twitter.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
