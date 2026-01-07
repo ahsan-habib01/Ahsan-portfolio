@@ -7,7 +7,8 @@ import {
   ArrowDown,
   Sparkles,
 } from 'lucide-react';
-import ahsanPhoto from '../assets/ahsan-photo2.png';
+// import ahsanPhoto from '../assets/ahsan-photo2.png';
+import ahsanPhoto from '../assets/ahsan-navy.png';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);

@@ -17,15 +17,17 @@
   name: 'light';
   default: true;
 
-  --color-primary: #38040e;
-  --color-secondary: #640d14;
+  --color-primary: #0353a4; /* #38040e*/
+  --color-secondary: #468faf; /* #640d14 */
+  /* --color-base-100: #121212; */
 }
 @plugin "daisyui/theme" {
   name: 'dark';
   /* default: true; */
 
-  --color-primary: #0353a4;  /* 0466c8 bc6c25  4c72b0*/
-  --color-secondary: #468faf; /* 468faf dd15e*/
+  --color-primary: #0353a4; /* #0466c8 #bc6c25  #4c72b0*/
+  --color-secondary: #468faf; /* #468faf dd15e*/
+  
 }
 
 /* Typography Utilities */

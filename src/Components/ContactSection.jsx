@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+import { BsWhatsapp } from 'react-icons/bs';
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -101,7 +102,7 @@ const ContactSection = () => {
       color: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: Phone,
+      icon: BsWhatsapp,
       title: 'Phone',
       value: '+880 1742-981732',
       link: 'tel:+8801742981732',
