@@ -173,7 +173,7 @@ const Footer = () => {
               </svg>
               <span>and React</span>
             </p>
-            <div className="flex items-center space-x-4 text-sm">
+            {/* <div className="flex items-center space-x-4 text-sm">
               <button className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
                 Privacy Policy
               </button>
@@ -181,7 +181,7 @@ const Footer = () => {
               <button className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
                 Terms of Service
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
