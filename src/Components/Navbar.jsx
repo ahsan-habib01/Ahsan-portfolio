@@ -112,9 +112,9 @@ const Navbar = () => {
               <h1 className="text-xl lg:text-2xl font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
                 Ahsan Habib
               </h1>
-              <p className="text-xs text-gray-600 dark:text-gray-400 font-accent">
+              {/* <p className="text-xs text-gray-600 dark:text-gray-400 font-accent">
                 Web Developer
-              </p>
+              </p> */}
             </div>
           </button>
 
