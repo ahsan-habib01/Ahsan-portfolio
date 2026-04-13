@@ -112,7 +112,7 @@ const AboutSection = () => {
         />
       </div>
 
-      <div className="section-container relative z-10 mx-10">
+      <div className="section-container relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${

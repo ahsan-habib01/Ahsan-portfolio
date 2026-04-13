@@ -85,13 +85,13 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 py-3'
+          ? 'bg-base-100/90 backdrop-blur-xl border-b border-base-content/10 py-3'
           : 'bg-transparent py-5'
       }`}
     >
       {/* Progress Bar */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary bg-[length:200%_100%] animate-gradient-x opacity-0 transition-opacity duration-300"
+        className="absolute bottom-0 left-0 right-0 h-px bg-base-content opacity-0 transition-opacity duration-300"
         style={{ opacity: isScrolled ? 1 : 0 }}
       />
 
@@ -103,62 +103,33 @@ const Navbar = () => {
             className="group flex items-center space-x-3"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <span className="text-white font-bold text-lg">AH</span>
+              <div className="relative w-10 h-10 bg-base-content flex items-center justify-center transform group-hover:scale-105 transition-all duration-300">
+                <span className="text-base-100 font-bold text-lg font-body">
+                  AH
+                </span>
               </div>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl lg:text-2xl font-display font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
-                Ahsan Habib
+              <h1 className="text-xl lg:text-2xl font-body font-black uppercase tracking-tighter text-base-content group-hover:scale-105 transition-transform duration-300">
+                Ahsan<span className="text-base-content/50">Habib.</span>
               </h1>
-              {/* <p className="text-xs text-gray-600 dark:text-gray-400 font-accent">
-                Web Developer
-              </p> */}
             </div>
           </button>
 
           {/* Desktop Navigation with Enhanced Design */}
           <div className="hidden lg:flex items-center">
-            <div
-              className={`flex items-center space-x-1 p-1.5 rounded-full ${
-                isScrolled
-                  ? 'bg-gray-100 dark:bg-gray-800'
-                  : 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md'
-              }`}
-            >
+            <div className={`flex items-center space-x-4 p-1.5`}>
               {navLinks.map(link => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`group relative px-4 py-2 rounded-full font-accent text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer ${
+                  className={`group relative px-2 py-2 font-body text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer ${
                     activeSection === link.id
-                      ? 'text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white'
+                      ? 'text-base-content border-b-2 border-base-content'
+                      : 'text-base-content/60 hover:text-base-content'
                   }`}
                 >
-                  {/* Active Background */}
-                  {activeSection === link.id && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-primary to-primary-600 rounded-full shadow-lg shadow-primary/30" />
-                  )}
-
-                  {/* Hover Effect */}
-                  <span className="absolute inset-0 bg-gray-200 dark:bg-gray-700 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 opacity-0 group-hover:opacity-100" />
-
                   <span className="relative flex items-center space-x-2">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d={link.icon}
-                      />
-                    </svg>
                     <span>{link.name}</span>
                   </span>
                 </button>
@@ -167,72 +138,37 @@ const Navbar = () => {
           </div>
 
           {/* Right Side: Theme Toggle & Mobile Menu */}
-          <div className="flex items-center gap-3">
-            {/* Theme Toggle with Enhanced Design */}
-            <label className="relative cursor-pointer group">
-              <input
-                type="checkbox"
-                className="sr-only"
-                onChange={e => handleTheme(e.target.checked)}
-                defaultChecked={localStorage.getItem('theme') === 'dark'}
-              />
-
+          <div className="flex items-center gap-6">
+            {/* Theme Toggle with Minimal Design */}
+            <label className="relative cursor-pointer group flex items-center gap-2">
+              <span
+                className={`text-xs font-semibold uppercase tracking-widest ${theme === 'light' ? 'text-base-content' : 'text-base-content/40'}`}
+              >
+                LT
+              </span>
               <div
-                className={`w-14 h-8 rounded-full transition-all duration-300 ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-r from-primary to-secondary'
-                    : 'bg-gradient-to-r from-yellow-600 to-orange-800'
-                }`}
+                className={`w-10 h-5 border border-base-content rounded-full relative transition-colors bg-base-100 flex items-center`}
+                onClick={() => handleTheme(theme === 'light')}
               >
                 <div
-                  className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-lg transform transition-all duration-300 flex items-center justify-center ${
-                    theme === 'dark' ? 'translate-x-6' : 'translate-x-0'
+                  className={`absolute w-3 h-3 rounded-full bg-base-content transition-transform duration-300 ${
+                    theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
                   }`}
-                >
-                  {theme === 'dark' ? (
-                    <svg
-                      className="w-4 h-4 text-indigo-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                    </svg>
-                  ) : (
-                    <svg
-                      className="w-4 h-4 text-yellow-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
-                </div>
+                />
               </div>
+              <span
+                className={`text-xs font-semibold uppercase tracking-widest ${theme === 'dark' ? 'text-base-content' : 'text-base-content/40'}`}
+              >
+                DK
+              </span>
             </label>
 
             {/* CTA Button - Desktop Only */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden md:flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-accent font-semibold text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
+              className="hidden md:flex items-center space-x-2 px-6 py-2.5 bg-base-content text-base-100 font-body font-semibold text-sm hover:opacity-80 transition-opacity duration-300"
             >
-              <span>Let's Talk</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
+              <span>Contact me</span>
             </button>
 
             {/* Mobile Menu Button with Animation */}

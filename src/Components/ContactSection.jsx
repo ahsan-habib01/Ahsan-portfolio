@@ -36,7 +36,7 @@ const ContactSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const section = document.getElementById('contact');
@@ -75,7 +75,7 @@ const ContactSection = () => {
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           formData,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         )
 
         .then(
@@ -88,7 +88,7 @@ const ContactSection = () => {
             console.error(err);
             toast.error('Oops! Something went wrong, please try again.');
             setIsSubmitting(false);
-          }
+          },
         );
     }, 2000);
   };
@@ -155,7 +155,7 @@ const ContactSection = () => {
         />
       </div>
 
-      <div className="section-container relative z-10 mx-10">
+      <div className="section-container relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
@@ -179,7 +179,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 w-full">
           {/* Left: Contact Info */}
           <div
             className={`space-y-6 transition-all duration-1000 delay-200 ${

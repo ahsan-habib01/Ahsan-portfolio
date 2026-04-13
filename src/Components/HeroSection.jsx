@@ -52,7 +52,7 @@ const HeroSection = () => {
         setDisplayText(
           isDeleting
             ? currentRole.substring(0, displayText.length - 1)
-            : currentRole.substring(0, displayText.length + 1)
+            : currentRole.substring(0, displayText.length + 1),
         );
       }
     }, typingSpeed);
@@ -84,15 +84,15 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-base-100 via-base-200 to-base-100 py-36"
+      className="relative overflow-hidden bg-base-100 pt-32 pb-16 lg:pt-40 lg:pb-20"
     >
       {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(to right, hsl(var(--p) / 0.1) 1px, transparent 1px),
-                             linear-gradient(to bottom, hsl(var(--p) / 0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px),
+                             linear-gradient(to bottom, #000 1px, transparent 1px)`,
             backgroundSize: '50px 50px',
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
             transition: 'transform 0.3s ease-out',
@@ -100,24 +100,10 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Floating Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-20 left-[10%] w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: '4s' }}
-        />
-        <div
-          className="absolute bottom-20 right-[10%] w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: '6s', animationDelay: '1s' }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: '8s', animationDelay: '2s' }}
-        />
-      </div>
+      {/* Floating Orbs Removed for minimal look */}
 
       {/* Main Content */}
-      <div className="section-container relative z-10 mx-10">
+      <div className="section-container relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Text Content */}
           <div
@@ -128,28 +114,30 @@ const HeroSection = () => {
             }`}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm font-accent font-semibold text-primary">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-100 border border-base-content/20 shadow-sm backdrop-blur-sm">
+              <Sparkles className="w-4 h-4 text-base-content" />
+              <span className="text-sm font-accent font-semibold text-base-content">
                 Available for Opportunities
               </span>
             </div>
 
             {/* Main Heading */}
             <div className="space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-black leading-none tracking-tight">
-                  Hi, I'm
+              <div className="space-y-0">
+                <h1 className="text-xl sm:text-2xl font-body font-medium leading-none tracking-tight flex items-center gap-2 mb-2">
+                  <span className="text-2xl">Hey, I am Ahsan Habib</span> and I
+                  am a
                 </h1>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-black leading-none tracking-tight">
-                  <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient">
-                    Ahsan Habib
-                  </span>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-body font-black leading-none tracking-tighter text-base-content uppercase">
+                  Web <span className="relative">Developer</span>
+                </h1>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-body font-black leading-none tracking-tighter text-outline-theme uppercase mt-[-1rem]">
+                  & Programmer
                 </h1>
               </div>
 
               {/* Typing Effect Role */}
-              <div className="flex items-center gap-3 min-h-[40px]">
+              {/* <div className="flex items-center gap-3 min-h-[40px]">
                 <span className="text-xl lg:text-2xl font-accent text-base-content/70">
                   A
                 </span>
@@ -161,7 +149,7 @@ const HeroSection = () => {
                     |
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Description */}
@@ -176,14 +164,14 @@ const HeroSection = () => {
               {techStack.map((tech, index) => (
                 <div
                   key={tech}
-                  className="px-4 py-2 rounded-full bg-base-200 border border-base-300 
-                           hover:border-primary hover:bg-primary/5 transition-all duration-300
-                           hover:scale-105 cursor-default"
+                  className="px-4 py-2 rounded-full bg-base-100 border border-base-content/20 
+                           hover:bg-base-content hover:text-base-100 transition-all duration-300
+                           cursor-default shadow-sm"
                   style={{
                     animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
                   }}
                 >
-                  <span className="text-sm font-accent font-semibold text-base-content">
+                  <span className="text-sm font-accent font-semibold flex-1">
                     {tech}
                   </span>
                 </div>
@@ -194,24 +182,20 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4 pt-4">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-8 py-4 rounded-xl bg-primary text-primary-content 
+                className="group relative px-8 py-4 bg-base-content text-base-100 
                          font-accent font-bold overflow-hidden transition-all duration-300
-                         hover:shadow-2xl hover:shadow-primary/50 hover:scale-105"
+                         hover:shadow-xl hover:scale-105 border border-base-content"
               >
                 <span className="relative z-10">View My Work</span>
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-primary to-secondary 
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
               </button>
 
               <a
                 href="/Ahsan_Habib_Resume.pdf"
                 download="Ahsan_Habib_Resume.pdf"
-                className="group px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-content border-2 border-base-300
+                className="group px-8 py-4 bg-transparent text-base-content border-2 border-base-content
                          font-accent font-bold inline-flex items-center gap-2
-                         hover:border-primary hover:bg-primary/5 transition-all duration-300
-                         hover:shadow-lg hover:scale-105"
+                         hover:bg-base-content hover:text-base-100 transition-all duration-300
+                         hover:scale-105"
               >
                 <Download size={20} className="group-hover:animate-bounce" />
                 Download Resume
@@ -233,7 +217,7 @@ const HeroSection = () => {
                 },
                 {
                   icon: Mail,
-                  href: 'mailto:ahsanhabib01@gmail.com',
+                  href: 'mailto:ahsanhabiib00@gmail.com',
                   label: 'Email',
                 },
               ].map(({ icon: Icon, href, label }) => (
@@ -241,10 +225,10 @@ const HeroSection = () => {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-12 h-12 rounded-xl bg-base-200 border border-base-300
+                  className="w-12 h-12 rounded-full bg-base-100 border border-base-content/20
                            flex items-center justify-center text-base-content
-                           hover:bg-primary hover:text-primary-content hover:border-primary
-                           hover:scale-110 hover:rotate-6 transition-all duration-300"
+                           hover:bg-base-content hover:text-base-100 hover:border-base-content
+                           hover:scale-110 transition-all duration-300 shadow-sm"
                 >
                   <Icon size={20} />
                 </a>
@@ -260,10 +244,10 @@ const HeroSection = () => {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="relative w-full max-w-lg mx-auto">
+            <div className="relative w-full max-w-lg lg:max-w-xl mx-auto flex items-center justify-center">
               {/* Main Image Container */}
               <div
-                className="relative aspect-square rounded-[3rem] overflow-hidden"
+                className="relative aspect-square overflow-hidden border-2 border-base-content/10 bg-base-200"
                 style={{
                   transform: `perspective(1000px) rotateY(${
                     mousePosition.x * 0.3
@@ -271,26 +255,19 @@ const HeroSection = () => {
                   transition: 'transform 0.3s ease-out',
                 }}
               >
-                {/* Gradient Border */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent p-1 rounded-[3rem] animate-gradient">
-                  <div className="w-full h-full bg-base-100 rounded-[2.8rem] overflow-hidden">
-                    {/* Replace with your image */}
-                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                      {/* <div className="text-6xl">👨‍💻</div> */}
-                      <img src={ahsanPhoto} alt="Ahsan Habib" />
-                    </div>
-                  </div>
+                <div className="w-full h-full bg-base-200 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500">
+                  <img
+                    src={ahsanPhoto}
+                    alt="Ahsan Habib"
+                    className="object-cover w-full h-full"
+                  />
                 </div>
-
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl -z-10 scale-95" />
               </div>
 
               {/* Floating Elements */}
               <div
-                className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-primary to-secondary 
-                         rounded-2xl rotate-12 flex items-center justify-center text-white font-bold
-                         shadow-2xl shadow-primary/50"
+                className="absolute -top-8 -right-8 w-24 h-24 bg-base-content
+                         rotate-12 flex items-center justify-center text-base-100 font-bold border border-base-100"
                 style={{
                   animation: 'float 3s ease-in-out infinite',
                   animationDelay: '0s',
@@ -300,32 +277,19 @@ const HeroSection = () => {
               </div>
 
               <div
-                className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-secondary to-primary 
-                         rounded-2xl -rotate-12 flex items-center justify-center text-white
-                         shadow-2xl shadow-secondary/50"
+                className="absolute -bottom-8 -left-8 w-32 h-32 bg-base-100 border-2 border-base-content
+                         -rotate-12 flex items-center justify-center text-base-content"
                 style={{
                   animation: 'float 3s ease-in-out infinite',
                   animationDelay: '1s',
                 }}
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold">8+</div>
-                  <div className="text-xs font-semibold">Projects</div>
+                  <div className="text-3xl font-bold font-display">8+</div>
+                  <div className="text-xs font-semibold uppercase tracking-widest">
+                    Projects
+                  </div>
                 </div>
-              </div>
-
-              {/* Decorative Dots */}
-              <div className="absolute top-1/4 -left-12 space-y-3">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-3 h-3 rounded-full bg-primary/50"
-                    style={{
-                      animation: `pulse 2s ease-in-out infinite`,
-                      animationDelay: `${i * 0.3}s`,
-                    }}
-                  />
-                ))}
               </div>
             </div>
           </div>
@@ -333,17 +297,19 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div
+      {/* <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer group"
         onClick={() => scrollToSection('about')}
       >
-        <div className="flex flex-col items-center gap-2 text-base-content/60 hover:text-primary transition-colors">
-          <span className="text-xs font-accent uppercase tracking-wider">
-            Scroll Down
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-sm font-accent font-semibold text-base-content/50 group-hover:text-base-content transition-colors tracking-widest uppercase">
+            Scroll
           </span>
-          <ArrowDown className="w-6 h-6 animate-bounce" />
+          <div className="w-8 h-14 rounded-full border-2 border-base-content/50 flex justify-center p-2 group-hover:border-base-content transition-colors">
+            <div className="w-1 h-3 bg-base-content rounded-full animate-bounce" />
+          </div>
         </div>
-      </div>
+      </div> */}
 
       <style jsx>{`
         @keyframes fadeInUp {

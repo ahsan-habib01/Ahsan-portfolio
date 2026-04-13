@@ -17,15 +17,21 @@ const ScrollToTop = () => {
   };
 
   return (
-    isVisible && (
+    <div
+      className={`fixed bottom-6 right-6 z-[100] transition-all duration-500 ease-in-out hidden sm:flex ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-10 pointer-events-none'
+      }`}
+    >
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition-all duration-300 z-100 cursor-pointer"
+        className="p-3 rounded-full bg-base-content text-base-100 shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 border border-transparent hover:border-base-content/20"
         aria-label="Scroll to top"
       >
-        <ChevronUp  size={20} />
+        <ChevronUp size={20} />
       </button>
-    )
+    </div>
   );
 };
 

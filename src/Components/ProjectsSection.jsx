@@ -136,7 +136,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative py-16 overflow-hidden bg-gradient-to-br from-base-100 via-base-200 to-base-100"
+      className="relative py-20 overflow-hidden bg-gradient-to-br from-base-100 via-base-200 to-base-100"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -150,7 +150,7 @@ const ProjectsSection = () => {
         />
       </div>
 
-      <div className="section-container relative z-10 mx-10">
+      <div className="section-container relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div
           className={`text-center mb-12 transition-all duration-1000 ${

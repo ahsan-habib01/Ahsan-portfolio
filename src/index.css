@@ -6,7 +6,9 @@
 
 /* DaisyUI themes */
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes:
+    light --default,
+    dark --prefersdark;
 }
 
 /* Custom dark variant */
@@ -17,25 +19,53 @@
   name: 'light';
   default: true;
 
-  --color-primary: #0353a4; /* #38040e*/
-  --color-secondary: #468faf; /* #640d14 */
-  --color-base-100: #e3f2fd; 
+  --color-primary: #000000;
+  --color-secondary: #333333;
+  --color-accent: #666666;
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f5f5;
+  --color-base-300: #e5e5e5;
+  --color-base-content: #000000;
 }
 @plugin "daisyui/theme" {
   name: 'dark';
-  /* default: true; */
 
-  --color-primary: #0353a4; /* #0466c8 #bc6c25  #4c72b0*/
-  --color-secondary: #468faf; /* #468faf dd15e*/
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-accent: #999999;
+  --color-base-100: #0a0a0a;
+  --color-base-200: #141414;
+  --color-base-300: #262626;
+  --color-base-content: #ffffff;
 }
 
 /* Typography Utilities */
 .font-display {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; /* Can keep or replace with inter */
 }
 
 .font-body {
   font-family: 'Inter', sans-serif;
+}
+
+.text-outline-light {
+  color: transparent;
+  -webkit-text-stroke: 1px #000000;
+}
+
+.text-outline-dark {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+:where([data-theme='dark']) .text-outline-theme {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+:where([data-theme='light']) .text-outline-theme {
+  color: transparent;
+  -webkit-text-stroke: 1px #000000;
 }
 
 html,
