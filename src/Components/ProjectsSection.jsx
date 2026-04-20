@@ -31,7 +31,7 @@ const ProjectsSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const section = document.getElementById('projects');
@@ -262,7 +262,7 @@ const ProjectsSection = () => {
                                   opacity-0 group-hover:opacity-100 transition-all duration-500 
                                   flex flex-col items-center justify-center gap-3"
                     >
-                      <div className="text-white text-center space-y-2 px-6">
+                      <div className="text-[var(--color-base-100)] text-center space-y-2 px-6">
                         <Rocket className="w-12 h-12 mx-auto animate-bounce" />
                         <p className="text-base font-accent font-semibold">
                           {project.highlight}
@@ -274,7 +274,7 @@ const ProjectsSection = () => {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn p-3 bg-white rounded-xl hover:scale-110 
+                          className="group/btn p-3 bg-base-100 rounded-xl hover:scale-110 
                                    transition-all duration-300 shadow-xl hover:shadow-2xl"
                         >
                           <ExternalLink className="w-5 h-5 text-primary" />
@@ -283,7 +283,7 @@ const ProjectsSection = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn p-3 bg-white rounded-xl hover:scale-110 
+                          className="group/btn p-3 bg-base-100 rounded-xl hover:scale-110 
                                    transition-all duration-300 shadow-xl hover:shadow-2xl"
                         >
                           <Github className="w-5 h-5 text-primary" />
@@ -370,7 +370,7 @@ const ProjectsSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-lg 
-                                 bg-primary text-primary-content font-accent font-bold text-sm
+                                 bg-primary text-[var(--color-base-100)] font-accent font-bold text-sm
                                  hover:shadow-lg hover:shadow-primary/50 hover:scale-105 
                                  transition-all duration-300"
                       >
@@ -409,7 +409,7 @@ const ProjectsSection = () => {
             <button
               onClick={() => setShowAll(!showAll)}
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl 
-                       bg-gradient-to-r from-primary to-secondary text-white 
+                       bg-gradient-to-r from-primary to-secondary text-[var(--color-base-100)] 
                        font-accent font-bold hover:shadow-xl hover:shadow-primary/50 
                        hover:scale-105 transition-all duration-300"
             >
@@ -444,7 +444,7 @@ const ProjectsSection = () => {
                 className="inline-flex items-center justify-center w-16 h-16 rounded-2xl 
                            bg-gradient-to-br from-primary to-secondary mb-2 animate-bounce"
               >
-                <Sparkles className="w-8 h-8 text-white" />
+                <Sparkles className="w-8 h-8 text-[var(--color-base-100)]" />
               </div>
 
               <h3 className="text-2xl lg:text-3xl font-display font-black">
@@ -463,7 +463,7 @@ const ProjectsSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-2 px-6 py-3 rounded-xl 
-                           bg-primary text-primary-content font-accent font-bold 
+                           bg-primary text-[var(--color-base-100)] font-accent font-bold 
                            hover:shadow-lg hover:shadow-primary/50 hover:scale-105 
                            transition-all duration-300"
                 >
@@ -487,7 +487,7 @@ const ProjectsSection = () => {
                     }
                   }}
                   className="group flex items-center gap-2 px-6 py-3 rounded-xl 
-                           border-2 border-primary hover:bg-primary hover:text-primary-content 
+                           border-2 border-primary hover:bg-primary hover:text-[var(--color-base-100)] 
                            font-accent font-bold hover:scale-105 transition-all duration-300"
                 >
                   <Rocket className="w-4 h-4" />

@@ -162,7 +162,7 @@ const AboutSection = () => {
                     className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4
                                group-hover:bg-primary group-hover:scale-110 transition-all duration-300"
                   >
-                    <Icon className="w-7 h-7 text-primary group-hover:text-primary-content transition-colors" />
+                    <Icon className="w-7 h-7 text-primary group-hover:text-[var(--color-base-100)] transition-colors" />
                   </div>
                   <h3 className="text-5xl font-display font-black text-primary mb-2">
                     {stat.value}
@@ -273,7 +273,7 @@ const AboutSection = () => {
                              transition-all duration-500"
                 >
                   <GraduationCap
-                    className="w-8 h-8 text-secondary group-hover:text-secondary-content 
+                    className="w-8 h-8 text-secondary group-hover:text-[var(--color-base-100)] 
                                           transition-colors"
                   />
                 </div>
@@ -342,7 +342,7 @@ const AboutSection = () => {
                                   flex items-center justify-center group-hover:scale-110 group-hover:rotate-6
                                   transition-all duration-500 shadow-lg shadow-primary/30 z-10"
                     >
-                      <Icon className="w-8 h-8 text-white" />
+                      <Icon className="w-8 h-8 text-[var(--color-base-100)]" />
                     </div>
 
                     {/* Content Card */}

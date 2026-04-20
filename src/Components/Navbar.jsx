@@ -104,7 +104,7 @@ const Navbar = () => {
           >
             <div className="relative">
               <div className="relative w-10 h-10 bg-base-content flex items-center justify-center transform group-hover:scale-105 transition-all duration-300">
-                <span className="text-base-100 font-bold text-lg font-body">
+                <span className="text-[var(--color-base-100)] font-bold text-lg font-body">
                   AH
                 </span>
               </div>
@@ -166,7 +166,7 @@ const Navbar = () => {
             {/* CTA Button - Desktop Only */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden md:flex items-center space-x-2 px-6 py-2.5 bg-base-content text-base-100 font-body font-semibold text-sm hover:opacity-80 transition-opacity duration-300"
+              className="hidden md:flex items-center space-x-2 px-6 py-2.5 bg-base-content text-[var(--color-base-100)] font-body font-semibold text-sm hover:opacity-80 transition-opacity duration-300"
             >
               <span>Contact me</span>
             </button>
@@ -214,7 +214,7 @@ const Navbar = () => {
                   onClick={() => scrollToSection(link.id)}
                   className={`group relative px-5 py-3 rounded-xl font-accent text-sm font-semibold tracking-wide transition-all duration-300 text-left ${
                     activeSection === link.id
-                      ? 'bg-gradient-to-r from-primary to-primary-600 text-white shadow-lg shadow-primary/30'
+                      ? 'bg-gradient-to-r from-primary to-primary-600 text-[var(--color-base-100)] shadow-lg shadow-primary/30'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                   style={{ transitionDelay: `${index * 50}ms` }}
@@ -255,7 +255,7 @@ const Navbar = () => {
             {/* Mobile CTA */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="w-full mt-6 flex items-center justify-center space-x-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-600 text-white rounded-xl font-accent font-semibold text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
+              className="w-full mt-6 flex items-center justify-center space-x-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-600 text-[var(--color-base-100)] rounded-xl font-accent font-semibold text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
             >
               <span>Get In Touch</span>
               <svg

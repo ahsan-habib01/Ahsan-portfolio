@@ -26,7 +26,7 @@ const ScrollToTop = () => {
     >
       <button
         onClick={scrollToTop}
-        className="p-3 rounded-full bg-base-content text-base-100 shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 border border-transparent hover:border-base-content/20"
+        className="p-3 rounded-full bg-base-content text-[var(--color-base-100)] shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 border border-transparent hover:border-base-content/20"
         aria-label="Scroll to top"
       >
         <ChevronUp size={20} />

@@ -221,7 +221,7 @@ const SkillsSection = () => {
                 className={`group flex items-center gap-2 px-6 py-3 rounded-xl font-accent font-semibold
                          transition-all duration-300 hover:scale-105 ${
                            activeCategory === category.id
-                             ? 'bg-primary text-primary-content shadow-lg shadow-primary/30'
+                             ? 'bg-primary text-[var(--color-base-100)] shadow-lg shadow-primary/30'
                              : 'bg-base-200 text-base-content hover:bg-base-300 border border-base-300'
                          }`}
               >

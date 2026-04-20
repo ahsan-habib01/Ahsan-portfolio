@@ -218,7 +218,7 @@ const ContactSection = () => {
                       >
                         <div
                           className={`w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} 
-                                     flex items-center justify-center text-white shadow-lg
+                                     flex items-center justify-center text-[var(--color-base-100)] shadow-lg
                                      group-hover/item:scale-110 transition-transform duration-300`}
                         >
                           <Icon className="w-6 h-6" />
@@ -287,7 +287,7 @@ const ContactSection = () => {
                          border border-green-500/20"
             >
               <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
-                <CheckCircle className="w-5 h-5 text-white" />
+                <CheckCircle className="w-5 h-5 text-[var(--color-base-100)]" />
               </div>
               <div>
                 <p className="font-accent font-bold text-base-content">
@@ -430,7 +430,7 @@ const ContactSection = () => {
                     onClick={handleSubmit}
                     disabled={isSubmitting}
                     className="group w-full py-4 rounded-xl bg-gradient-to-r from-primary to-secondary 
-                             text-white font-accent font-bold text-lg
+                             text-[var(--color-base-100)] font-accent font-bold text-lg
                              hover:shadow-xl hover:shadow-primary/50 hover:scale-105
                              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
                              transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"

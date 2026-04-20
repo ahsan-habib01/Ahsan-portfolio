@@ -129,10 +129,10 @@ const HeroSection = () => {
                   am a
                 </h1>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-body font-black leading-none tracking-tighter text-base-content uppercase">
-                  Web <span className="relative">Developer</span>
-                </h1>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-body font-black leading-none tracking-tighter text-outline-theme uppercase mt-[-1rem]">
-                  & Programmer
+                  Web{' '}
+                  <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-body font-black leading-none tracking-tighter text-outline-theme uppercase mt-[-1rem]">
+                    Developer
+                  </span>
                 </h1>
               </div>
 
@@ -165,7 +165,7 @@ const HeroSection = () => {
                 <div
                   key={tech}
                   className="px-4 py-2 rounded-full bg-base-100 border border-base-content/20 
-                           hover:bg-base-content hover:text-base-100 transition-all duration-300
+                           hover:bg-base-content hover:text-[var(--color-base-100)] transition-all duration-300
                            cursor-default shadow-sm"
                   style={{
                     animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
@@ -182,7 +182,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4 pt-4">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-8 py-4 bg-base-content text-base-100 
+                className="group relative px-8 py-4 bg-base-content text-[var(--color-base-100)] 
                          font-accent font-bold overflow-hidden transition-all duration-300
                          hover:shadow-xl hover:scale-105 border border-base-content"
               >
@@ -194,7 +194,7 @@ const HeroSection = () => {
                 download="Ahsan_Habib_Resume.pdf"
                 className="group px-8 py-4 bg-transparent text-base-content border-2 border-base-content
                          font-accent font-bold inline-flex items-center gap-2
-                         hover:bg-base-content hover:text-base-100 transition-all duration-300
+                         hover:bg-base-content hover:text-[var(--color-base-100)] transition-all duration-300
                          hover:scale-105"
               >
                 <Download size={20} className="group-hover:animate-bounce" />
@@ -227,7 +227,7 @@ const HeroSection = () => {
                   aria-label={label}
                   className="w-12 h-12 rounded-full bg-base-100 border border-base-content/20
                            flex items-center justify-center text-base-content
-                           hover:bg-base-content hover:text-base-100 hover:border-base-content
+                           hover:bg-base-content hover:text-[var(--color-base-100)] hover:border-base-content
                            hover:scale-110 transition-all duration-300 shadow-sm"
                 >
                   <Icon size={20} />
@@ -267,7 +267,7 @@ const HeroSection = () => {
               {/* Floating Elements */}
               <div
                 className="absolute -top-8 -right-8 w-24 h-24 bg-base-content
-                         rotate-12 flex items-center justify-center text-base-100 font-bold border border-base-100"
+                         rotate-12 flex items-center justify-center text-[var(--color-base-100)] font-bold border border-[var(--color-base-100)]"
                 style={{
                   animation: 'float 3s ease-in-out infinite',
                   animationDelay: '0s',
