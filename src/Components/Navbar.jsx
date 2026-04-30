@@ -163,7 +163,7 @@ const Navbar = () => {
               </span>
             </label>
 
-            {/* CTA Button - Desktop Only */}
+            {/* CTA Button - Desktop Only  */}
             <button
               onClick={() => scrollToSection('contact')}
               className="hidden md:flex items-center space-x-2 px-6 py-2.5 bg-base-content text-[var(--color-base-100)] font-body font-semibold text-sm hover:opacity-80 transition-opacity duration-300"
